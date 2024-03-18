@@ -1,0 +1,294 @@
+:root{
+    --primary-color: #181818;
+    --secondary-color: #898989;
+    --tertiary-color: #8f1a1a;
+    --quaternary-color: #BFBFBF;
+    --neon: drop-shadow(0px 0px 5px #701414);
+    --cardShadow: drop-shadow(0px 0px 10px #000000);
+}
+
+@font-face {
+    font-family: 'Pixel';
+    src: url(../fonts/PixelCode.woff) format('woff'),
+         url(../fonts/PixelCode.woff2) format('woff2');
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #191919c8;
+}
+
+main {
+    position: relative;
+    width: 85%;
+    height: 85%;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    box-shadow: inset 0 0 20px 1px #0F0F0F;
+}
+
+nav{
+    width: 10%;
+    height: 100%;
+    padding: 3rem 0;
+}
+
+ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul .navTop li {
+    width: 100%;
+}
+
+ul .navTop li p {
+    text-align: center;
+    font-weight: 900;
+    filter: var(--neon);
+    color: var(--tertiary-color);
+    font-size: 2.5rem;
+}
+
+.navIcons {
+    width: 3rem;
+    max-width: 100%;
+    height: 3rem;
+    margin: .5rem 0;
+    fill: var(--secondary-color);
+    stroke: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.downloadIcon{
+    margin: 0;
+    width: 4rem;
+    height: 4rem;
+    fill: var(--tertiary-color);
+    stroke: var(--tertiary-color);
+    filter: var(--neon);
+}
+
+.activeLink {
+    /* margin-left: 16px; */
+    fill: var(--tertiary-color);
+    stroke: var(--tertiary-color);
+    filter: var(--neon);
+}
+
+/************/
+/****Card****/
+/************/
+
+.cardContainer {
+    perspective: 1000px;
+    height: 100%;
+    width: 40%;
+}
+
+.cardSides{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all .75s ease;
+    transform: rotateY(180deg);
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.cardSides:hover .myself{
+    filter: brightness(0.55) contrast(1.2) blur(0.5px);
+    scale: 1.05
+}
+.cardSides:hover .getToKnowMe {
+    opacity: 1;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #202020;
+    transition: all 0.5s ease;
+}
+
+.getToKnowMe {
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scale: 1.05;
+    opacity: 0;
+    background-color: #0f0f0fc5;
+    transition-delay: 0.25s;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-property: all;
+}
+
+.getToKnowMe p {
+    font-size: 1.5rem;
+    color: var(--tertiary-color);
+    font-weight: 900;
+    text-align: center;
+    filter: var(--neon);
+}
+.getToKnowMe p span {
+    font-size: 2rem;
+    vertical-align: middle;
+}
+
+.myself {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(1) contrast(1) blur(0) var(--cardShadow);
+    transition: all 0.5s ease;
+}
+
+.back {
+    transform: rotateY(180deg);
+    box-shadow: 0 0 20px 1px #0F0F0F;
+    border-radius: 5px;
+    padding: 1rem;
+    scale: 1.05;
+    text-align: center;
+}
+
+.back h3 {
+    font-size: 2.5rem;
+    color: var(--quaternary-color);
+}
+
+
+.back h4 {
+    font-family: 'Pixel', sans-serif;
+    font-size: .7rem;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+.back .infos {
+    margin:1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.back .infos tbody tr {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.back .pictoData {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+.back .pictoData .pictoDataSvg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--tertiary-color);
+}
+
+.back h6 {
+    text-align: left;
+    font-size: 1rem;
+    color: var(--quaternary-color);
+}
+
+.back #map {
+    width: 90%;
+    height: 30%;
+    margin: 0 auto;
+}
+
+.back p {
+    text-align: left;
+    font-size: .9rem;
+    color: var(--quaternary-color);
+    margin: 1rem 0;
+}
+
+.back p span {
+    font-weight: 900;
+    color: var(--quaternary-color);
+}
+
+.back p.centeredP {
+    text-align: center;
+}
+
+.back p.highlighted {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--tertiary-color);
+    filter: var(--neon);
+    font-weight: 900;
+}
+
+/****************/
+/**Main Content**/
+/****************/
+
+.content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    opacity: 0;
+    padding: 1rem;
+    transition: all 0.75s ease;
+}
+.activeContent {
+    opacity: 1;
+}
+
+.content h1 {
+    font-size: 3rem;
+    color: var(--tertiary-color);
+    margin-bottom: 1rem;
+}

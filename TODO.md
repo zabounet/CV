@@ -1,0 +1,1 @@
+- Fix map click flipping card
