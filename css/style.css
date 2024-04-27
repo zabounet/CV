@@ -5,7 +5,20 @@
     --quaternary-color: #BFBFBF;
     --neon: drop-shadow(0px 0px 5px #701414);
     --cardShadow: drop-shadow(0px 0px 10px #000000);
+    --headingsFontSize: 2.5rem;
+    --textFontSize: 1.25rem;
+    --descriptionFontSize: .85rem;
+    --svgSize: 3rem;
 }
+
+/* No scrollbar allowed */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/***********************************/
+/***************Fonts***************/
+/***********************************/
 
 @font-face {
     font-family: 'Pixel';
@@ -13,6 +26,10 @@
          url(../fonts/PixelCode.woff2) format('woff2');
     font-style: normal;
 }
+
+/*************************************/
+/***************General***************/
+/*************************************/
 
 * {
     margin: 0;
@@ -26,11 +43,11 @@
 body {
     width: 100vw;
     height: 100vh;
-    align-items: center;
     overflow: hidden;
     background-image: url('../images/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    color: var(--quaternary-color);
 }
 
 .container {
@@ -54,6 +71,10 @@ main {
     box-shadow: inset 0 0 20px 1px #0F0F0F;
 }
 
+/*************************************/
+/*****************Nav*****************/
+/*************************************/
+
 nav{
     width: 10%;
     height: 100%;
@@ -62,29 +83,27 @@ nav{
 
 ul {
     width: 100%;
-    height: 100%;
+    height: 100%;https://www.nz-projekts.comli
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-ul .navTop li {
-    width: 100%;
-}
+ul .navTop li {width: 100%;}
 
 ul .navTop li p {
     text-align: center;
     font-weight: 900;
     filter: var(--neon);
     color: var(--tertiary-color);
-    font-size: 2.5rem;
+    font-size: var(--headingsFontSize)
 }
 
-.navIcons {
-    width: 3rem;
+.navIcons,.downloadIcon {
+    width: var(--svgSize);
     max-width: 100%;
-    height: 3rem;
+    height: var(--svgSize);
     margin: .5rem 0;
     fill: var(--secondary-color);
     stroke: var(--secondary-color);
@@ -94,23 +113,22 @@ ul .navTop li p {
 
 .downloadIcon{
     margin: 0;
-    width: 4rem;
-    height: 4rem;
+    width: var(--svgSize);
+    height: var(--svgSize);
     fill: var(--tertiary-color);
     stroke: var(--tertiary-color);
     filter: var(--neon);
 }
 
 .activeLink {
-    /* margin-left: 16px; */
     fill: var(--tertiary-color);
     stroke: var(--tertiary-color);
     filter: var(--neon);
 }
 
-/************/
-/****Card****/
-/************/
+/**************************************/
+/*****************Card*****************/
+/**************************************/
 
 .cardContainer {
     perspective: 1000px;
@@ -124,20 +142,20 @@ ul .navTop li p {
     position: relative;
     transform-style: preserve-3d;
     transition: all .75s ease;
-    transform: rotateY(180deg);
 }
 
-.flipped {
-    transform: rotateY(180deg);
-}
+.flipped {transform: rotateY(180deg);}
+
+/****************************************/
+/***************Front Side***************/
+/****************************************/
 
 .cardSides:hover .myself{
-    filter: brightness(0.55) contrast(1.2) blur(0.5px);
+    filter: brightness(0.5) contrast(1.2) blur(0.75px);
     scale: 1.05
 }
-.cardSides:hover .getToKnowMe {
-    opacity: 1;
-}
+
+.cardSides:hover .getToKnowMe {opacity: 1;}
 
 .front, .back {
     backface-visibility: hidden;
@@ -152,33 +170,29 @@ ul .navTop li p {
 
 .getToKnowMe {
     width: 100%;
-    height: 15%;
+    height: 10%;
     position: absolute;
     top: 40%;
+    bottom: 40%;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     scale: 1.05;
     opacity: 0;
-    background-color: #0f0f0fc5;
-    transition-delay: 0.25s;
-    transition-duration: 0.5s;
-    transition-timing-function: ease;
-    transition-property: all;
+    background-color: #ffffffc5;
+    transition: all 1s ease;
 }
 
 .getToKnowMe p {
-    font-size: 1.5rem;
-    color: var(--tertiary-color);
+    font-size: var(--textFontSize);
+    color: var(--primary-color);
+    font-family: 'Pixel', sans-serif;
     font-weight: 900;
     text-align: center;
-    filter: var(--neon);
 }
-.getToKnowMe p span {
-    font-size: 2rem;
-    vertical-align: middle;
-}
+
+.getToKnowMe p span {font-size: var(--headingsFontSize); vertical-align: middle;}
 
 .myself {
     height: 100%;
@@ -188,6 +202,10 @@ ul .navTop li p {
     transition: all 0.5s ease;
 }
 
+/***************************************/
+/***************Back Side***************/
+/***************************************/
+
 .back {
     transform: rotateY(180deg);
     box-shadow: 0 0 20px 1px #0F0F0F;
@@ -195,20 +213,19 @@ ul .navTop li p {
     padding: 1rem;
     scale: 1.05;
     text-align: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.back h3 {
-    font-size: 2.5rem;
-    color: var(--quaternary-color);
-}
+.back h1 {font-size: var(--headingsFontSize);}
 
-
-.back h4 {
+.back h2 {
     font-family: 'Pixel', sans-serif;
-    font-size: .7rem;
+    font-size: var(--descriptionFontSize);
     color: var(--secondary-color);
     font-style: italic;
 }
+
 .back .infos {
     margin:1rem 0;
     display: flex;
@@ -216,10 +233,17 @@ ul .navTop li p {
     justify-content: center;
 }
 
-.back .infos tbody tr {
-    height: 2rem;
+.back .infos ul{
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.back .infos ul li {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 .back .pictoData {
@@ -227,16 +251,17 @@ ul .navTop li p {
     align-items: center;
     padding: 0 1rem;
 }
+
 .back .pictoData .pictoDataSvg {
     width: 1.5rem;
     height: 1.5rem;
     fill: var(--tertiary-color);
 }
 
-.back h6 {
+.back section.infos p {
+    margin: .5rem 0;
     text-align: left;
     font-size: 1rem;
-    color: var(--quaternary-color);
 }
 
 .back #map {
@@ -246,32 +271,72 @@ ul .navTop li p {
 }
 
 .back p {
-    text-align: left;
-    font-size: .9rem;
-    color: var(--quaternary-color);
+    text-align: center;
     margin: 1rem 0;
 }
 
-.back p span {
-    font-weight: 900;
-    color: var(--quaternary-color);
-}
+.back p.centeredP {font-weight: 900;}
 
-.back p.centeredP {
-    text-align: center;
+.back .highlightedBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:5%;
 }
 
 .back p.highlighted {
-    font-size: 1.2rem;
+    position: absolute;
+    font-size: var(--textFontSize);
+    font-weight: 900;
+    font-family: 'Pixel', sans-serif;
+    color: var(--tertiary-color);
+    filter: var(--neon);
+}
+
+.back p.highlighted::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 100%;
+    top: 2px;
+    left: 2px;
+    color: var(--quaternary-color);
+}
+
+.back .quoteBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.back p.slideOutText, .back p.slideInText {
+    position: absolute;
+    font-style: italic;
+    font-family: 'Pixel',sans-serif;
     text-align: center;
     color: var(--tertiary-color);
     filter: var(--neon);
-    font-weight: 900;
+}
+.back p.slideOutText:before, .back p.slideInText:before {
+    content: attr(data-text);
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 100%;
+    color: var(--quaternary-color);
 }
 
-/****************/
-/**Main Content**/
-/****************/
+.back a.contactMe{
+    color: var(--tertiary-color);
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.back p:last-of-type {margin: 1rem 0;}
+
+/******************************************/
+/***************Main Content***************/
+/******************************************/
 
 .content {
     position: absolute;
@@ -283,12 +348,133 @@ ul .navTop li p {
     padding: 1rem;
     transition: all 0.75s ease;
 }
-.activeContent {
-    opacity: 1;
-}
+.activeContent {opacity: 1;}
 
 .content h1 {
-    font-size: 3rem;
+    font-size: var(--headingsFontSize);
     color: var(--tertiary-color);
     margin-bottom: 1rem;
+}
+
+#aboutContent h1 {
+    font-size: var(--headingsFontSize);
+    color: var(--tertiary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/****************************************/
+/**************Js Animations*************/
+/****************************************/
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+.slide-in {
+    animation: slide-in 0.5s ease-in-out forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s ease-in-out forwards;
+}
+
+/****************************************/
+/***************Media Queries************/
+/****************************************/
+
+@media screen and (max-width: 1024px) {
+    :root{
+        --headingsFontSize: 2rem;
+        --textFontSize: 1rem;
+        --descriptionFontSize: .75rem;
+        --svgSize: 2.5rem;
+    }
+    main {
+        width: 100%; 
+        height: 100%; 
+        overflow: scroll;
+        flex-direction: column;
+    }
+    nav {display: none;}
+    .cardContainer {width: 100%; height: max-content;}
+    .cardSides {height: unset;}
+    .cardSides:hover .myself {
+        filter: brightness(0.8) contrast(1.2);
+        scale: 1;
+    }
+    .flipped {transform: rotateY(0deg);}
+    .front, .back {
+        position: relative;
+    } 
+    .front {
+        height: 55vh;
+        z-index: 1  ;
+    }
+    .getToKnowMe {
+        top: unset;
+        left: 0;
+        bottom: 0;
+        height: 10%;
+        min-height: 50px;
+        opacity: 1;
+    }
+    .getToKnowMe::after {
+        content: 'My Portfolio';
+        position: absolute;
+        font-size: var(--headingsFontSize);
+        color: var(--primary-color);
+        font-family: 'Pixel', sans-serif;
+        font-weight: 900;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--secondary-color);
+        box-shadow: 0 0 20px 1px #0F0F0F;
+    }
+    .myself {
+        object-position: center 25%;
+        filter: brightness(0.5) contrast(1.2);
+    }
+    .back {
+        transform: rotateY(0deg);
+        overflow: hidden;
+        scale: 1;
+        border-radius: 0;
+        background-color: #0D0D0D;
+    }
+    .back p {
+        margin: 1.5rem 0;
+    }
+    .back .quoteBox {
+        padding: 1.5rem 0;
+    }
+    .back p:last-of-type {
+        margin: 2rem 0;
+    }
+    .content {
+        position: relative;
+        opacity: 1;
+        height: max-content;
+    }
 }

@@ -1,0 +1,6 @@
+projectKey=myResume
+serverUrl=http://localhost:9000
+serverVersion=10.4.1.88267
+dashboardUrl=http://localhost:9000/dashboard?id=myResume
+ceTaskId=fdf86eb3-f91e-432e-9870-614dd53e560e
+ceTaskUrl=http://localhost:9000/api/ce/task?id=fdf86eb3-f91e-432e-9870-614dd53e560e

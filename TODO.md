@@ -1,1 +1,3 @@
-- Fix map click flipping card
+- Revoir responsive card infos perso
+- Faire le favicon
+- Créer plaquette/Cv imprimer
