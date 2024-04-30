@@ -195,14 +195,14 @@ Age.innerHTML = getCurrentAge() + " ans";
                 godMode.style.zIndex = "1000";
 
                 if (activated) {
-                    godMode.src = "./images/godmode.png";
+                    godMode.src = "./images/godMode.png";
                     body.appendChild(godMode);
                     setTimeout(() => {
                         godMode.remove();
                     }, 3000);
                 }
                 else {
-                    godMode.src = "./images/godmodeOff.png";
+                    godMode.src = "./images/godModeOff.png";
                     body.appendChild(godMode);
                     setTimeout(() => {
                         godMode.remove();
