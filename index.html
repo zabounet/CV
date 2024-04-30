@@ -15,11 +15,271 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
     <script src="js/map.js" defer></script>
+    <script src="js/repos.js" defer></script>
     <script defer src="js/script.js"></script>
 </head>
 
 <body class="background">
-    <div style="width: 100%; height: 100%; background-color: black; display: flex; align-items:center; justify-content:center;">
-        <h1> Site actuellement en construction !</h1>
+    <div class="container">
+        <main>
+            <nav>
+                <ul>
+                    <div class="navTop">
+                        <li>
+                            <p>NR</p>
+                        </li>
+                    </div>
+                    <div class="navCenter">
+                        <li title="Profil">
+                            <svg class="navIcons activeLink" id="aboutTab">
+                                <use xlink:href="#about"></use>
+                            </svg>
+                        </li>
+                        <li title="Projets">
+                            <svg class="navIcons" id="projectsTab">
+                                <use xlink:href="#projects"></use>
+                            </svg>
+                        </li>
+                        <li title="Présence aux évènements">
+                            <svg class="navIcons" id="eventsTab">
+                                <use xlink:href="#events"></use>
+                            </svg>
+                        </li>
+                        <li title="Réseaux">
+                            <svg class="navIcons" id="socialsTab">
+                                <use xlink:href="#socials"></use>
+                            </svg>
+                        </li>
+                    </div>
+                    <div class="navBottom">
+                        <li title="Télécharger mon CV">
+                            <a href="./docs/CvNicolas.pdf" download>
+                                <svg class="downloadIcon">
+                                    <use xlink:href="#resume" style="box-shadow: 0 0 2px 2px rgb(143, 26, 26);"></use>
+                                </svg>
+                            </a>
+                            CV
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+            <article class="cardContainer">
+                <div class="cardSides" id="flipCard">
+                    <section class="front">
+                        <img class="myself" src="images/myself.jpg" alt="Nicolas's professionnal picture">
+                        <div class="getToKnowMe">
+                            <p>&Agrave; propos de moi <span>&rightarrow;</span></p>
+                        </div>
+                    </section>
+                    <section class="back">
+                        <h1>Nicolas Rabot</h1>
+                        <h2>Just some guy who's passionate about programming...</h2>
+                        <section class="infos" role="presentation">
+                            <ul>
+                                <li>
+                                    <div class="pictoData">
+                                        <svg class="pictoDataSvg">
+                                            <use xlink:href="#age"></use>
+                                        </svg>
+                                    </div>
+                                    <p id="Age"></p>
+                                </li>
+                                <li>
+                                    <div class="pictoData">
+                                        <svg class="pictoDataSvg">
+                                            <use xlink:href="#loc"></use>
+                                        </svg>
+                                    </div>
+                                    <p>41000 Blois, </br>7 rue Beaumarchais</p>
+                                </li>
+                                <li>
+                                    <div class="pictoData">
+                                        <svg class="pictoDataSvg">
+                                            <use xlink:href="#email"></use>
+                                        </svg>
+                                    </div>
+                                    <p> nicolas.r7702@gmail.com </p>
+                                </li>
+                                <li>
+                                    <div class="pictoData">
+                                        <svg class="pictoDataSvg">
+                                            <use xlink:href="#phone"></use>
+                                        </svg>
+                                    </div>
+                                    <p> 06.34.99.43.86 </p>
+                                </li>
+                            </ul>
+                        </section>
+                        <div id="map"></div>
+                        <p class="centeredP">Encore un nouveau développeur sur le marché...</p>
+                        <div class="highlightedBox">
+                            <p class="highlighted" data-text="Mais aucun comme moi !"></p>
+                        </div>
+                        <p><span>Passionné, avide de connaissances et toujours de bonne humeur</span></p>
+                        <p>c'est avec joie que j'intègrerai votre équipe où je pourrais mettre en &oelig;uvre mes
+                            compétences technique.</p>
+                        <p>Mes capacités d'adaptation et de leadership garantiront le succès de vos projets.</p>
+                        <div class="quoteBox">
+                            <p class="slideOutText"
+                                data-text="“ Il n’y a qu’une seule façon d’échouer, c’est d’abandonner avant d’avoir réussi. ”">
+                            </p>
+                            <p class="slideInText"
+                                data-text="“ Il n’y a qu’une seule façon d’échouer, c’est d’abandonner avant d’avoir réussi. ”">
+                            </p>
+                        </div>
+
+                        <!-- <p>Mon profil vous plaît ? <a class="contactMe"
+                                href="mailto:nicolas.r7702@gmail.com">Envoyez-moi un email !</a></p<> -->
+                    </section>
+                </div>
+            </article>
+            <div class="tabsDiv">
+                <section class="content activeContent" id="aboutContent">
+                    <h1>Profil technique</h1>
+                    <div class="mainContent">
+                        <div class="contentBody">
+                            <h2>Études</h2>
+                            <p>
+                                Je suis diplômé d'un titre professionnel de niveau 5 en développement web et web mobile,
+                                et
+                                actuellement en formation de niveau 6 en concepteur développeur d'applications. <br />
+                                Bien que mes études soient tournées vers le web, ma passion ne s'arrête pas là et
+                                je possède des notions de bases dans plusieurs langages de programmation.
+                            </p>
+                        </div>
+                        <div class="contentBody">
+                            <h2>Compétences</h2>
+                            <p>
+                                Je suis spécialisé dans le développement et la conception d'applications web. Mes
+                                compétences concernent principalement le front-end, le back-end, la conception de bases
+                                de
+                                données et la gestion de projets.
+                            </p>
+                        </div>
+                        <div class="contentBody">
+                            <h2>Expérience</h2>
+                            <p>
+                                Pendant mes formations et mes stages, j'ai réalisé plusieurs projets qui m'ont permis de
+                                mettre en pratique mes compétences et d'acquérir une expérience professionnelle
+                                concrète.
+                                <br />
+                                Mes projets personnels et réalisations intra-formation sont disponibles dans la section
+                                Projets
+                            </p>
+                        </div>
+                        <div class="contentBody">
+                            <h2>Passionné</h2>
+                            <p>
+                                J'ai participé à plusieurs projets et événements, notamment des start-up week-ends, où
+                                j'ai
+                                pu travailler en équipe avec des personnes inconnues et de toutes origines.<br />
+                                Je vais aussi régulièrement sur des salons tels que la Paris Games Week, la Viva Tech ou
+                                encore le Business Connect Day
+                            </p>
+                        </div>
+                        <div class="contentBody">
+                            <h2>Activités</h2>
+                            <p>
+                                En dehors du développement, je me forme également à la création de pixel-art et de
+                                musique,
+                                vous pouvez retrouver mes créations sur mes réseaux sociaux
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="content" id="projectsContent">
+                    <h1>Projets</h1>
+                    <div class="mainContent">
+                    </div>
+                </section>
+                <section class="content" id="eventsContent">
+                    <h1>Présence aux évènements</h1>
+                    <p style="font-style: italic; text-align:center">à venir !</p>
+                </section>
+                <section class="content" id="socialsContent">
+                    <h1>Mes réseaux</h1>
+                    <p style="font-style: italic; text-align:center">à venir !</p>
+                </section>
+            </div>
+        </main>
     </div>
+</body>
+
+<svg style="display: none;">
+    <defs>
+        <symbol viewbox="0 0 450 450" id="about">
+            <path
+                d="M213.333333,3.55271368e-14 C95.51296,3.55271368e-14 3.55271368e-14,95.51168 3.55271368e-14,213.333333 C3.55271368e-14,331.153707 95.51296,426.666667 213.333333,426.666667 C331.154987,426.666667 426.666667,331.153707 426.666667,213.333333 C426.666667,95.51168 331.154987,3.55271368e-14 213.333333,3.55271368e-14 Z M213.333333,384 C119.227947,384 42.6666667,307.43872 42.6666667,213.333333 C42.6666667,119.227947 119.227947,42.6666667 213.333333,42.6666667 C307.44,42.6666667 384,119.227947 384,213.333333 C384,307.43872 307.44,384 213.333333,384 Z M240.04672,128 C240.04672,143.46752 228.785067,154.666667 213.55008,154.666667 C197.698773,154.666667 186.713387,143.46752 186.713387,127.704107 C186.713387,112.5536 197.99616,101.333333 213.55008,101.333333 C228.785067,101.333333 240.04672,112.5536 240.04672,128 Z M192.04672,192 L234.713387,192 L234.713387,320 L192.04672,320 L192.04672,192 Z">
+        </symbol>
+        <symbol viewbox="0 0 24 24" id="events">
+            <g>
+                <path
+                    d="M9 1v2h6V1h2v2h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h4V1h2zm11 7H4v11h16V8zm-4.964 2.136l1.414 1.414-4.95 4.95-3.536-3.536L9.38 11.55l2.121 2.122 3.536-3.536z" />
+            </g>
+        </symbol>
+        <symbol viewbox="0 0 32 32" id="projects">
+            <path
+                d="M27,4H5C3.3,4,2,5.3,2,7v18c0,1.7,1.3,3,3,3h22c1.7,0,3-1.3,3-3V7C30,5.3,28.7,4,27,4z M9.1,7.6c0.1-0.1,0.1-0.2,0.2-0.3
+                c0.1-0.1,0.2-0.2,0.3-0.2C10,6.9,10.4,7,10.7,7.3c0.1,0.1,0.2,0.2,0.2,0.3C11,7.7,11,7.9,11,8c0,0.3-0.1,0.5-0.3,0.7
+                C10.5,8.9,10.3,9,10,9C9.7,9,9.5,8.9,9.3,8.7C9.1,8.5,9,8.3,9,8C9,7.9,9,7.7,9.1,7.6z M6,8c0-0.3,0.1-0.5,0.3-0.7
+                c0,0,0.1-0.1,0.1-0.1c0.1,0,0.1-0.1,0.2-0.1C6.7,7,6.7,7,6.8,7c0.1,0,0.3,0,0.4,0c0.1,0,0.1,0,0.2,0.1c0.1,0,0.1,0.1,0.2,0.1
+                c0,0,0.1,0.1,0.1,0.1c0.1,0.1,0.2,0.2,0.2,0.3C8,7.7,8,7.9,8,8c0,0.1,0,0.3-0.1,0.4C7.9,8.5,7.8,8.6,7.7,8.7C7.5,8.9,7.3,9,7,9
+                S6.5,8.9,6.3,8.7C6.1,8.5,6,8.3,6,8z M11.7,21.3c0.4,0.4,0.4,1,0,1.4C11.5,22.9,11.3,23,11,23s-0.5-0.1-0.7-0.3l-3-3
+                c-0.4-0.4-0.4-1,0-1.4l3-3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4L9.4,19L11.7,21.3z M12.6,8.9c-0.1-0.1-0.2-0.1-0.3-0.2
+                c-0.1-0.1-0.2-0.2-0.2-0.3C12,8.3,12,8.1,12,8c0-0.1,0-0.3,0.1-0.4c0.1-0.1,0.1-0.2,0.2-0.3c0.4-0.4,1-0.4,1.4,0
+                c0.1,0.1,0.2,0.2,0.2,0.3C14,7.7,14,7.9,14,8c0,0.1,0,0.3-0.1,0.4c-0.1,0.1-0.1,0.2-0.2,0.3C13.5,8.9,13.3,9,13,9
+                C12.9,9,12.7,9,12.6,8.9z M18.9,15.4l-4,8C14.7,23.8,14.4,24,14,24c-0.2,0-0.3,0-0.4-0.1c-0.5-0.2-0.7-0.8-0.4-1.3l4-8
+                c0.2-0.5,0.8-0.7,1.3-0.4C18.9,14.4,19.1,15,18.9,15.4z M24.7,19.7l-3,3C21.5,22.9,21.3,23,21,23s-0.5-0.1-0.7-0.3
+                c-0.4-0.4-0.4-1,0-1.4l2.3-2.3l-2.3-2.3c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l3,3C25.1,18.7,25.1,19.3,24.7,19.7z" />
+        </symbol>
+        <symbol viewbox="0 0 24 24" id="socials">
+            <path d="M10 4L7 20M17 4L14 20M5 8H20M4 16H19" stroke-width="2" />
+        </symbol>
+        <symbol viewbox="0 0 32 40" id="resume">
+            <path
+                d="M0 16q0 2.912 1.824 5.088t4.576 2.752q0.032 0 0.032-0.032v-0.064t0.032-0.032q0.544-1.344 1.344-2.176t2.208-1.184v-2.336q0-2.496 1.728-4.256t4.256-1.76 4.256 1.76 1.76 4.256v2.336q1.376 0.384 2.176 1.216t1.344 2.144l0.096 0.288h0.384q2.464 0 4.224-1.76t1.76-4.224v-2.016q0-2.464-1.76-4.224t-4.224-1.76q-0.096 0-0.32 0.032 0.32-1.152 0.32-2.048 0-3.296-2.368-5.632t-5.632-2.368q-2.88 0-5.056 1.824t-2.784 4.544q-1.152-0.352-2.176-0.352-3.296 0-5.664 2.336t-2.336 5.664v1.984zM10.016 25.824q-0.096 0.928 0.576 1.6l4 4q0.576 0.576 1.408 0.576t1.408-0.576l4-4q0.672-0.672 0.608-1.6-0.064-0.32-0.16-0.576-0.224-0.576-0.736-0.896t-1.12-0.352h-1.984v-5.984q0-0.832-0.608-1.408t-1.408-0.608-1.408 0.608-0.576 1.408v5.984h-2.016q-0.608 0-1.12 0.352t-0.736 0.896q-0.096 0.288-0.128 0.576z">
+            </path>
+        </symbol>
+        <symbol viewbox="0 0 50 50" id="age">
+            <path
+                d="M25 0.09375L24.21875 1.09375C23.515625 1.992188 20 6.578125 20 9C20 11.414063 21.722656 13.441406 24 13.90625L24 10C24 9.449219 24.449219 9 25 9C25.550781 9 26 9.449219 26 10L26 13.90625C28.277344 13.441406 30 11.414063 30 9C30 6.578125 26.484375 1.992188 25.78125 1.09375 Z M 23 15C21.347656 15 20 16.347656 20 18L20 26L30 26L30 18C30 16.347656 28.652344 15 27 15 Z M 11 28C8.179688 28 5.761719 29.683594 4.65625 32.09375C5.226563 33.597656 5.804688 34.398438 5.8125 34.40625C6.703125 35.59375 8.390625 37 11.40625 37C13.863281 37 15.6875 36.15625 17 34.40625L17.75 33.375L18.5625 34.375C20.042969 36.152344 22.152344 37 25 37C27.769531 37 30 36.101563 31.4375 34.375L32.25 33.375L33 34.40625C34.3125 36.15625 36.136719 37 38.59375 37C41.050781 37 42.875 36.15625 44.1875 34.40625C44.214844 34.371094 44.964844 33.414063 45.375 32.125C44.277344 29.691406 41.839844 28 39 28 Z M 4 35.3125L4 42L46 42L46 35.34375C45.875 35.523438 45.792969 35.609375 45.78125 35.625C44.113281 37.847656 41.679688 39 38.59375 39C35.941406 39 33.785156 38.167969 32.15625 36.5C30.753906 37.785156 28.5 39 25 39C22.039063 39 19.640625 38.164063 17.84375 36.5C16.214844 38.164063 14.054688 39 11.40625 39C7.5625 39 5.351563 37.144531 4.1875 35.59375C4.175781 35.578125 4.113281 35.484375 4 35.3125 Z M 0 44L0 45C0 50 4.890625 50 6.5 50L43.5 50C45.105469 50 50 50 50 45L50 44Z" />
+        </symbol>
+        <symbol viewbox="0 0 511.953 511.953" id="loc">
+            <g transform="translate(-1)">
+                <g>
+                    <g>
+                        <path d="M256.995,149.287c-11.776,0-21.333,9.579-21.333,21.333c0,11.755,9.557,21.333,21.333,21.333s21.333-9.579,21.333-21.333
+                            C278.328,158.865,268.771,149.287,256.995,149.287z" fill="none" />
+                        <path
+                            d="M365.518,38.887C325.987,6.311,274.04-6.639,223.011,3.239C154.147,16.615,100.152,72.273,88.718,141.735
+                            c-6.784,41.003,0.725,81.216,21.696,116.267l8.704,14.528c27.861,46.443,56.64,94.485,79.701,143.893l38.848,83.221
+                            c3.499,7.509,11.029,12.309,19.328,12.309s15.829-4.8,19.328-12.309l34.965-74.923c23.317-49.984,52.096-98.688,79.957-145.792
+                            l12.971-22.016c15.339-26.091,23.445-55.936,23.445-86.293C427.662,119.484,405.006,71.463,365.518,38.887z M256.995,234.62
+                            c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64S292.28,234.62,256.995,234.62z" />
+                    </g>
+                </g>
+            </g>
+        </symbol>
+        <symbol viewbox="0 0 512 445" id="email">
+            <g>
+                <path d="M440.917,67.925H71.083C31.827,67.925,0,99.752,0,139.008v233.984c0,39.256,31.827,71.083,71.083,71.083
+                    h369.834c39.255,0,71.083-31.827,71.083-71.083V139.008C512,99.752,480.172,67.925,440.917,67.925z M178.166,321.72l-99.54,84.92
+                    c-7.021,5.992-17.576,5.159-23.567-1.869c-5.992-7.021-5.159-17.576,1.87-23.567l99.54-84.92c7.02-5.992,17.574-5.159,23.566,1.87
+                    C186.027,305.174,185.194,315.729,178.166,321.72z M256,289.436c-13.314-0.033-26.22-4.457-36.31-13.183l0.008,0.008l-0.032-0.024
+                    c0.008,0.008,0.017,0.008,0.024,0.016L66.962,143.694c-6.98-6.058-7.723-16.612-1.674-23.583c6.057-6.98,16.612-7.723,23.582-1.674
+                    l152.771,132.592c3.265,2.906,8.645,5.004,14.359,4.971c5.706,0.017,10.995-2.024,14.44-5.028l0.074-0.065l152.615-132.469
+                    c6.971-6.049,17.526-5.306,23.583,1.674c6.048,6.97,5.306,17.525-1.674,23.583l-152.77,132.599
+                    C282.211,284.929,269.322,289.419,256,289.436z M456.948,404.771c-5.992,7.028-16.547,7.861-23.566,1.869l-99.54-84.92
+                    c-7.028-5.992-7.861-16.546-1.869-23.566c5.991-7.029,16.546-7.861,23.566-1.87l99.54,84.92
+                    C462.107,387.195,462.94,397.75,456.948,404.771z" />
+            </g>
+        </symbol>
+        <symbol viewbox="0 0 24 24" id="phone">
+            <path
+                d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z" />
+        </symbol>
+
+    </defs>
+</svg>
+
 </html>

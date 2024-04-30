@@ -7,7 +7,8 @@
     --cardShadow: drop-shadow(0px 0px 10px #000000);
     --headingsFontSize: 2.5rem;
     --textFontSize: 1.25rem;
-    --descriptionFontSize: .85rem;
+    --bodyTextFontSize: .90rem;
+    --descriptionFontSize: .65rem;
     --svgSize: 3rem;
 }
 
@@ -83,7 +84,7 @@ nav{
 
 ul {
     width: 100%;
-    height: 100%;https://www.nz-projekts.comli
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -100,17 +101,32 @@ ul .navTop li p {
     font-size: var(--headingsFontSize)
 }
 
+ul .navCenter li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .navIcons,.downloadIcon {
     width: var(--svgSize);
     max-width: 100%;
     height: var(--svgSize);
-    margin: .5rem 0;
+    margin: 1rem 0;
     fill: var(--secondary-color);
     stroke: var(--secondary-color);
     cursor: pointer;
     transition: all 0.5s ease;
 }
 
+ul .navBottom li {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--tertiary-color);
+}
 .downloadIcon{
     margin: 0;
     width: var(--svgSize);
@@ -146,16 +162,16 @@ ul .navTop li p {
 
 .flipped {transform: rotateY(180deg);}
 
-/****************************************/
-/***************Front Side***************/
-/****************************************/
-
 .cardSides:hover .myself{
     filter: brightness(0.5) contrast(1.2) blur(0.75px);
     scale: 1.05
 }
 
 .cardSides:hover .getToKnowMe {opacity: 1;}
+
+/****************************************/
+/***************Front Side***************/
+/****************************************/
 
 .front, .back {
     backface-visibility: hidden;
@@ -338,29 +354,114 @@ ul .navTop li p {
 /***************Main Content***************/
 /******************************************/
 
-.content {
-    position: absolute;
-    top: 0;
-    right: 0;
+.tabsDiv{
     width: 50%;
-    height: 100%;
-    opacity: 0;
     padding: 1rem;
-    transition: all 0.75s ease;
+    overflow: hidden;
 }
-.activeContent {opacity: 1;}
+.content {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow-y: scroll;
+    transition: 0.75s ease;
+    transition-delay: 0.1s;
+}
+.activeContent {opacity: 1; height: 100%; width: 100%;}
 
 .content h1 {
     font-size: var(--headingsFontSize);
     color: var(--tertiary-color);
     margin-bottom: 1rem;
+    text-align: center;
 }
 
-#aboutContent h1 {
-    font-size: var(--headingsFontSize);
+/****************************************/
+/***************About Me*****************/
+/****************************************/
+
+
+#aboutContent .mainContent{
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    margin: auto;
+}
+
+#aboutContent .mainContent .contentBody{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1.5rem 0;
+    transition: all 0.5s ease;
+}
+
+#aboutContent .mainContent .contentBody:nth-of-type(even) {
+    align-items: flex-end;
+}
+
+#aboutContent .mainContent .contentBody h2 {
+    width: 75%;
+    text-align: left;
+    font-size: var(--textFontSize);
+    font-family: 'Pixel', sans-serif;
     color: var(--tertiary-color);
-    margin-bottom: 1rem;
+}
+
+#aboutContent .mainContent .contentBody p {
+    width: 75%;
+    font-size: var(--bodyTextFontSize);
+    line-height: 1.25;
+    color: var(--quaternary-color);
+}
+
+/****************************************/
+/***************Projects*****************/
+/****************************************/
+
+.repoCard {
+    display: block;
+    width: 75%;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem auto;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.repoCard:hover {
+    box-shadow: 0 6px 6px rgba(143, 26, 26, 0.3);
+    transform: translate(0, -4px);
+}
+
+.repoName {
     text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    color: var(--quaternary-color);
+}
+
+.repoDescription {
+    color: var(--secondary-color);
+    margin: 1rem 0;
+}
+
+.repoLanguage {
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.repoLink {
+    color: #0366d6;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.repoLink:hover {
+    text-decoration: underline;
 }
 
 /****************************************/
@@ -411,7 +512,8 @@ ul .navTop li p {
     main {
         width: 100%; 
         height: 100%; 
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         flex-direction: column;
     }
     nav {display: none;}
@@ -463,18 +565,28 @@ ul .navTop li p {
         border-radius: 0;
         background-color: #0D0D0D;
     }
+    .back .infos ul {
+        width: 75%;
+    }
     .back p {
         margin: 1.5rem 0;
     }
+    .back p.highlighted{
+        font-weight: normal;
+    }
     .back .quoteBox {
-        padding: 1.5rem 0;
+        padding: 1.5rem 0 3rem;
     }
     .back p:last-of-type {
         margin: 2rem 0;
     }
+    .tabsDiv{
+        overflow:visible;
+        width: 100%;
+    }
     .content {
-        position: relative;
         opacity: 1;
         height: max-content;
+        width: 100%;
     }
 }
