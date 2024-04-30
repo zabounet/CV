@@ -261,5 +261,4 @@ function displayRepos() {
     });
 }
 
-// Appel de la fonction pour afficher les repos sur votre portfolio
 displayRepos();

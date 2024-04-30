@@ -142,6 +142,10 @@ ul .navBottom li {
     filter: var(--neon);
 }
 
+.CvDownloadPhone {
+    display: none;
+}
+
 /**************************************/
 /*****************Card*****************/
 /**************************************/
@@ -588,5 +592,19 @@ ul .navBottom li {
         opacity: 1;
         height: max-content;
         width: 100%;
+    }
+    .CvDownloadPhone {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--descriptionFontSize);
+        color: var(--tertiary-color);
+        border: 3px solid #000;
+        border-radius: 50%;
+        background-color: #000;
     }
 }
