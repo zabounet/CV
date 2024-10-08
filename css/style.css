@@ -7,7 +7,6 @@
     --cardShadow: drop-shadow(0px 0px 10px #000000);
     --headingsFontSize: 2.5rem;
     --textFontSize: 1.25rem;
-    --bodyTextFontSize: .90rem;
     --descriptionFontSize: .65rem;
     --svgSize: 3rem;
 }
@@ -365,6 +364,7 @@ ul .navBottom li {
 
 .tabsDiv{
     width: 50%;
+    position: relative;
     padding: 1rem;
     overflow: hidden;
 }
@@ -376,13 +376,30 @@ ul .navBottom li {
     transition: 0.75s ease;
     transition-delay: 0.1s;
 }
-.activeContent {opacity: 1; height: 100%; width: 100%;}
+.activeContent { opacity: 1; height: 100%; width: 100%;}
 
 .content h1 {
     font-size: var(--headingsFontSize);
     color: var(--tertiary-color);
     margin-bottom: 1rem;
     text-align: center;
+}
+
+#scrollArrow {
+    position: absolute;
+    bottom: 1rem;
+    right: 50%;
+    left: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tertiary-color);
+    background-color: var(--secondary-color);
+    border-radius: 100%;
+    cursor: pointer;
 }
 
 /****************************************/
@@ -419,7 +436,7 @@ ul .navBottom li {
 
 #aboutContent .mainContent .contentBody p {
     width: 75%;
-    font-size: var(--bodyTextFontSize);
+    font-size: var(--textFontSize);
     line-height: 1.25;
     color: var(--quaternary-color);
 }

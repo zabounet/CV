@@ -2,12 +2,12 @@
  * All rights reserved, nz-projekts 2024.
  */
 // Constantes)
-const printMe = document.querySelector(".downloadIcon")
-const flipCard = document.querySelector("#flipCard")
-const navLinks = document.querySelectorAll(".navIcons")
+const printMe = document.querySelector(".downloadIcon");
+const flipCard = document.querySelector("#flipCard");
+const navLinks = document.querySelectorAll(".navIcons");
 const contents = document.querySelectorAll(".content");
 const Age = document.querySelector("#Age");
-const catchPhrase = document.querySelector(".highlighted")
+const catchPhrase = document.querySelector(".highlighted");
 const slideIn = document.querySelector(".slideInText");
 const slideOut = document.querySelector(".slideOutText");
 
@@ -52,6 +52,7 @@ let slideAnimation = setInterval(() => {
 
 }, 5000);
 
+//EventListeners
 flipCard.addEventListener("click", () => {
     flipCard.classList.toggle("flipped");
     if (flipCard.classList.contains("flipped")) {
@@ -78,7 +79,6 @@ navLinks.forEach(link => {
     });
 });
 
-
 // Fonctions
 function getCurrentAge() {
     const formattedDate = new Date().toLocaleDateString("fr-FR");
@@ -87,7 +87,7 @@ function getCurrentAge() {
     let month = formattedDate.slice(3, 5) - 7
     let year = formattedDate.slice(6) - 2002
 
-    if (month < 0 || (month <= 0 && day < 0)) {
+    if (month < 0 || (month == 0 && day < 0)) {
         year--;
     }
 
